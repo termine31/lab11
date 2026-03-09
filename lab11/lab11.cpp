@@ -102,31 +102,25 @@ int main()
     }
 
     // Тест в текстовый файл
-    ofstream Etog("etog" + to_string(num)+".txt");
+    ofstream Etog1("etog1" + to_string(num)+".txt");
+    ofstream Etog2("etog2" + to_string(num) + ".txt");
     if (!hRoots) {
-        Etog << "NO";
+        Etog1 << "NO";
+        Etog2 << "NO";
     }
     else {
-        // исходные слова
-        for (int i = 0; i < n; i++) {
-            Etog << words[i];
-            if (i < n - 1) Etog << "   "; 
-        }
-        Etog << endl;
-
-        
-        Etog << "=============================" << endl;
 
        // слова для длинного слова 
+        Etog1 << longslovo << endl;
         for (string s : slova) {
-            Etog << s << " ";
+            Etog1 << s << " ";
         }
-        Etog << endl;
         // важное слово
-        Etog << mimport << " " << maximport;
+        Etog2 << mimport << " " << maximport;
     }
 
-    Etog.close();
+    Etog1.close();
+    Etog2.close();
     
 
 
