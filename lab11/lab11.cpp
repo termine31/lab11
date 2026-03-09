@@ -32,6 +32,58 @@ int main()
         cout << i + 1 << ". " << words[i] << endl;
     }
 	
+    // Создаю счетчики
+    int n = words.size();
+    vector<int> importance(n, 0); 
+    vector<bool> isRoot(n, false); 
+
+   
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (i == j)
+                continue;
+
+            // поиск корневый слов
+            if (words[j].length() >= words[i].length()) {
+                bool isPrefix = true;
+                for (int k = 0; k < words[i].length(); k++) {
+                    if (words[i][k] != words[j][k]) {
+                        isPrefix = false;
+                        break;
+                    }
+                }
+
+                if (isPrefix) {
+                    importance[i]++;
+                    isRoot[i] = true;     
+                }
+            }
+        }
+    }
+    // поиск длинного 
+    string longslovo = "";
+    int maxlen = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (isRoot[i] && words[i].length() > maxlen) {
+            maxlen = words[i].length();
+            longslovo = words[i];
+        }
+    }
+    // поиск важного 
+    string mimport = "";
+    int maximport = -1;
+
+    for (int i = 0; i < n; i++) {
+        if (importance[i] > maximport) {
+            maximport = importance[i];
+            mimport = words[i];
+        }
+    }
+
+
+
+
 
 
 
