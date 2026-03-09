@@ -81,7 +81,27 @@ int main()
         }
     }
 
+    // поиск всех слов для длинного корневого слова
+    vector<string> slova;
 
+    if (!longslovo.empty()) {
+        for (int j = 0; j < n; j++) {
+            if (words[j] != longslovo && words[j].find(longslovo) == 0) {
+                slova.push_back(words[j]);
+            }
+        }
+    }
+
+    // Проверка есть ли корневые
+    bool hRoots = false;
+    for (int i = 0; i < n; i++) {
+        if (isRoot[i]) {
+            hRoots = true;
+            break;
+        }
+    }
+
+    // Тест в текстовый файл
 
 
 
