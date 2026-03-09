@@ -102,7 +102,32 @@ int main()
     }
 
     // Тест в текстовый файл
+    ofstream Etog("etog" + to_string(num)+".txt");
+    if (!hRoots) {
+        Etog << "NO";
+    }
+    else {
+        // исходные слова
+        for (int i = 0; i < n; i++) {
+            Etog << words[i];
+            if (i < n - 1) Etog << "   "; 
+        }
+        Etog << endl;
 
+        
+        Etog << "=============================" << endl;
+
+       // слова для длинного слова 
+        for (string s : slova) {
+            Etog << s << " ";
+        }
+        Etog << endl;
+        // важное слово
+        Etog << mimport << " " << maximport;
+    }
+
+    Etog.close();
+    
 
 
 
